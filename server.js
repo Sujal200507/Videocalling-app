@@ -3,6 +3,9 @@ import { createServer } from 'node:http';
 import { Server } from "socket.io";
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 
 const app = express();
@@ -60,9 +63,8 @@ io.on("connection",(socket)=>{
 
 
 
-server.listen(9000,()=>{
+server.listen(process.env.PORT||3000,()=>{
     console.log("working");
-    
 })
 
 
